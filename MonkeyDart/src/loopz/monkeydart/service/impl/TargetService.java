@@ -21,26 +21,17 @@ public class TargetService implements ITargetService {
 	
 	@Override
 	public List<Target> findAllTarget() {
-		SQLiteDatabase db = dbHelper.getReadableDatabase();
-		Cursor cursor = db.query(DBConstants.TABLE_TARGET, null, null, null, null, null, DBConstants.TARGET_ID);
-		
-		List<Target> list = new ArrayList<Target>();
-		while (cursor.moveToNext()) {
-			Target target = new Target();
-			target.setId(cursor.getInt(cursor.getColumnIndex(DBConstants.TARGET_ID)));
-			target.setValue(cursor.getString(cursor.getColumnIndex(DBConstants.TARGET_VALUE)));
-			target.setName(cursor.getString(cursor.getColumnIndex(DBConstants.TARGET_NAME)));
-			target.setCategory(cursor.getString(cursor.getColumnIndex(DBConstants.TARGET_CATEGORY)));
-			
-			list.add(target);
-		}
-		return list;
+		return findTargetByCat(null);
 	}
 
 	@Override
 	public List<Target> findTargetByCat(String category) {
+		String whereCond = (category != null && category.length() > 0) ?
+							DBConstants.TARGET_CATEGORY + "=?" : 
+							null;
+		
 		SQLiteDatabase db = dbHelper.getReadableDatabase();
-		Cursor cursor = db.query(DBConstants.TABLE_TARGET, null, DBConstants.TARGET_CATEGORY + "=?", null, null, null, DBConstants.TARGET_ID);
+		Cursor cursor = db.query(DBConstants.TABLE_TARGET, null, whereCond, null, null, null, DBConstants.TARGET_ID);
 		
 		List<Target> list = new ArrayList<Target>();
 		while (cursor.moveToNext()) {
@@ -52,6 +43,8 @@ public class TargetService implements ITargetService {
 			
 			list.add(target);
 		}
+		db.close();
+		
 		return list;
 	}
 
