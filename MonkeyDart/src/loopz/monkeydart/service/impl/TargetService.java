@@ -30,7 +30,7 @@ public class TargetService implements ITargetService {
 							DBConstants.TARGET_CATEGORY + "=?" : 
 							null;
 		
-		SQLiteDatabase db = dbHelper.getReadableDatabase();
+		SQLiteDatabase db = dbHelper.getWritableDatabase();
 		Cursor cursor = db.query(DBConstants.TABLE_TARGET, null, whereCond, null, null, null, DBConstants.TARGET_ID);
 		
 		List<Target> list = new ArrayList<Target>();
