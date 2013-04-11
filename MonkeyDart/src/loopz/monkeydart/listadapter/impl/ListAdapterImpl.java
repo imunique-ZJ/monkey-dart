@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-public class ListAdapterImpl<T> extends BaseAdapter implements IListAdapter<T> {
+public class ListAdapterImpl extends BaseAdapter implements IListAdapter<Target> {
 
 	private List<Target> dataList = new ArrayList<Target>(0);
 	private LayoutInflater inflater;
@@ -63,9 +63,9 @@ public class ListAdapterImpl<T> extends BaseAdapter implements IListAdapter<T> {
 	}
 
 	@Override
-	public void updateList(List<T> list) {
+	public void updateList(List<Target> list) {
 		this.dataList.clear();
-		dataList.addAll((List<Target>) list);
+		dataList.addAll(list);
 		notifyDataSetChanged();
 	}
 

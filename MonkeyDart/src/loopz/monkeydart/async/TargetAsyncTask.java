@@ -3,7 +3,7 @@ package loopz.monkeydart.async;
 import java.util.List;
 
 import loopz.monkeydart.domain.Target;
-import loopz.monkeydart.listadapter.impl.ListAdapterImpl;
+import loopz.monkeydart.listadapter.IListAdapter;
 import loopz.monkeydart.service.impl.TargetService;
 import android.content.Context;
 import android.os.AsyncTask;
@@ -11,9 +11,9 @@ import android.os.AsyncTask;
 public class TargetAsyncTask extends AsyncTask<String, Integer, List<Target>> {
 	
 	private TargetService targetService;
-	private ListAdapterImpl<Target> adapter;
+	private IListAdapter<Target> adapter;
 	
-	public TargetAsyncTask(Context context, ListAdapterImpl<Target> adapter) {
+	public TargetAsyncTask(Context context, IListAdapter<Target> adapter) {
 		this.targetService = new TargetService(context);
 		this.adapter       = adapter;
 	}
