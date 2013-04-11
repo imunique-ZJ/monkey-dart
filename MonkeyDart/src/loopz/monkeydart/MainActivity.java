@@ -5,7 +5,7 @@ import loopz.monkeydart.db.DBConstants;
 import loopz.monkeydart.db.DBHelper;
 import loopz.monkeydart.domain.Target;
 import loopz.monkeydart.listadapter.IListAdapter;
-import loopz.monkeydart.listadapter.impl.ListAdapterImpl;
+import loopz.monkeydart.listadapter.impl.TargetListAdapter;
 import android.app.Activity;
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
@@ -41,7 +41,7 @@ public class MainActivity extends Activity {
     }
     
     private void initView() {
-    	listAdapter = new ListAdapterImpl(this);
+    	listAdapter = new TargetListAdapter(this);
     	targetLV = (ListView) findViewById(R.id.target_list);
     	targetLV.setAdapter(listAdapter);
     }

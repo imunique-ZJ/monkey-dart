@@ -15,12 +15,12 @@ import android.widget.BaseAdapter;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
-public class ListAdapterImpl extends BaseAdapter implements IListAdapter<Target>, ListAdapter {
+public class TargetListAdapter extends BaseAdapter implements IListAdapter<Target>, ListAdapter {
 
 	private List<Target> dataList = new ArrayList<Target>(0);
 	private LayoutInflater inflater;
 	
-	public ListAdapterImpl(Context context) {
+	public TargetListAdapter(Context context) {
 		this.inflater = LayoutInflater.from(context);
 	}
 	
