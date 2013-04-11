@@ -3,6 +3,7 @@ package loopz.monkeydart;
 import loopz.monkeydart.async.TargetAsyncTask;
 import loopz.monkeydart.db.DBConstants;
 import loopz.monkeydart.db.DBHelper;
+import loopz.monkeydart.listadapter.IListAdapter;
 import loopz.monkeydart.listadapter.impl.ListAdapterImpl;
 import android.app.Activity;
 import android.content.ContentValues;
@@ -14,7 +15,7 @@ import android.widget.ListView;
 public class MainActivity extends Activity {
 	
 	private ListView targetLV;
-	private ListAdapterImpl listAdapter;
+	private IListAdapter listAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
