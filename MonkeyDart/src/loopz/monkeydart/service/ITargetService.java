@@ -9,4 +9,6 @@ public interface ITargetService {
 	public List<Target> findAllTarget();
 	
 	public List<Target> findTargetByCat(String category);
+	
+	public List<String> findAllCategory();
 }

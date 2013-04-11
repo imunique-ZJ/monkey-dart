@@ -48,4 +48,23 @@ public class TargetService implements ITargetService {
 		return list;
 	}
 
+	@Override
+	public List<String> findAllCategory() {
+		StringBuilder sb = new StringBuilder("SELECT DISTINCT ");
+		sb.append(DBConstants.TARGET_CATEGORY)
+		  .append(" FROM ")
+		  .append(DBConstants.TABLE_TARGET);
+		
+		SQLiteDatabase db = dbHelper.getWritableDatabase();
+		Cursor cursor = db.rawQuery(sb.toString(), null);
+		
+		List<String> list = new ArrayList<String>();
+		while (cursor.moveToNext()) {
+			list.add(cursor.getString(0));
+		}
+		db.close();
+		
+		return list;
+	}
+
 }
