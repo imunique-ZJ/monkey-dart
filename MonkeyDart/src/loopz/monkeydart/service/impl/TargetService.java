@@ -26,12 +26,16 @@ public class TargetService implements ITargetService {
 
 	@Override
 	public List<Target> findTargetByCat(String category) {
-		String whereCond = (category != null && category.length() > 0) ?
-							DBConstants.TARGET_CATEGORY + "=?" : 
-							null;
+		String whereCond = null;
+		String args[] = null;
+		
+		if (category != null && category.length() > 0) {
+			whereCond = DBConstants.TARGET_CATEGORY + "=?"; 
+			args	  = new String[] {category};
+		}
 		
 		SQLiteDatabase db = dbHelper.getWritableDatabase();
-		Cursor cursor = db.query(DBConstants.TABLE_TARGET, null, whereCond, null, null, null, DBConstants.TARGET_ID);
+		Cursor cursor = db.query(DBConstants.TABLE_TARGET, null, whereCond, args, null, null, DBConstants.TARGET_ID);
 		
 		List<Target> list = new ArrayList<Target>();
 		while (cursor.moveToNext()) {

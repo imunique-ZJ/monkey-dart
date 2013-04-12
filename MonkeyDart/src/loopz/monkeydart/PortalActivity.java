@@ -42,6 +42,16 @@ public class PortalActivity extends Activity {
     	SQLiteDatabase db = helper.getWritableDatabase();
     	ContentValues cv = new ContentValues();
 		
+    	cv.put(DBConstants.TARGET_VALUE, "0050");
+    	cv.put(DBConstants.TARGET_NAME, "台灣50");
+    	cv.put(DBConstants.TARGET_CATEGORY, "Stock");
+		db.insert(DBConstants.TABLE_TARGET, null, cv);
+		
+    	cv.put(DBConstants.TARGET_VALUE, "2353");
+    	cv.put(DBConstants.TARGET_NAME, "Acer");
+    	cv.put(DBConstants.TARGET_CATEGORY, "Stock");
+		db.insert(DBConstants.TABLE_TARGET, null, cv);
+		
     	cv.put(DBConstants.TARGET_VALUE, "F001");
     	cv.put(DBConstants.TARGET_NAME, "小雞飯");
     	cv.put(DBConstants.TARGET_CATEGORY, "Food");
