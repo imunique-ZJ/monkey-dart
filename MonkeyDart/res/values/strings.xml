@@ -4,5 +4,9 @@
     <string name="app_name">Monkey Dart</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="cx">CX</string>
+    <string name="cy">CY</string>
+    <string name="radius">Radius</string>
+    <string name="btn_str">Change</string>
 
 </resources>
